@@ -176,6 +176,19 @@ Components
         vertical-align: middle;
         .brand-heading {
             font-size: 40px;
+            height: 110px;
+            border-bottom: 110px solid #fff;
+            color: #000;
+            overflow: hidden;
+            -webkit-transition: height 1s ease-in-out, border-bottom 1s ease-in-out, color 2s ease-in-out;
+            -moz-transition: height 1s ease-in-out, border-bottom 1s ease-in-out, color 2s ease-in-out;
+            transition: height 1s ease-in-out, border-bottom 1s ease-in-out, color 2s ease-in-out;
+
+            &.show {
+              color: #fff;
+              height: 110px;
+              border-bottom: 0px solid #fff;
+            }
         }
         .intro-text {
             font-size: 18px;
@@ -196,29 +209,25 @@ Components
 }
 
 .btn-circle {
-    width: 70px;
-    height: 70px;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 30px);
     margin-top: 15px;
     padding: 7px 16px;
-    border: 2px solid white;
-    border-radius: 100% !important;
-    font-size: 40px;
+    font-size: 60px;
     color: white;
     background: transparent;
-    -webkit-transition: background .3s ease-in-out;
+/*    -webkit-transition: background .3s ease-in-out;
     -moz-transition: background .3s ease-in-out;
-    transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;*/
     &:hover,
     &:focus {
-        outline: none;
-        color: white;
-        background: rgba(white, 0.1);
+        color: $primary;
+        /*background: rgba(white, 0.1);*/
     }
-    i.animated {
-        -webkit-transition-property: -webkit-transform;
-        -webkit-transition-duration: 1s;
-        -moz-transition-property: -moz-transform;
-        -moz-transition-duration: 1s;
+    &.animated {
+        @include animate-duration(3s);
+        @include animate-delay(1s);
     }
     &:hover {
         i.animated {
@@ -272,7 +281,7 @@ Components
     padding-top: 100px;
 }
 
-.download-section {
+.releases-section {
     width: 100%;
     padding: 50px 0;
     color: white;
@@ -290,7 +299,30 @@ Components
         padding-top: 250px;
     }
 
-    .download-section {
+    .releases-section {
+        padding: 100px 0;
+    }
+}
+
+
+.photos-section {
+    width: 100%;
+    padding: 50px 0;
+    color: white;
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+
+@media(min-width:767px) {
+    .content-section {
+        padding-top: 250px;
+    }
+
+    .photos-section {
         padding: 100px 0;
     }
 }

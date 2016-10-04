@@ -15,6 +15,10 @@ export default Ember.Component.extend({
           $(this).closest('.collapse').collapse('toggle');
       });*/
     });
+
+    Ember.run.later(this, function() {      
+      Ember.$('.brand-heading').addClass('show');
+    },1000);
   }),
 
   collapseNavbar() {
