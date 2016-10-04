@@ -17,15 +17,16 @@
 @import "./mixins/boost-animation";
 
 body {
-    width: 100%;
-    height: 100%;
-    font-family: 'Space Mono', monospace,Helvetica,Arial,sans-serif;
-    color: white;
-    background-color: black;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: 'Space Mono', monospace,Helvetica,Arial,sans-serif;
+  color: white;
+  background-color: black;
 
-    > .ember-view {
-      height: 100%;
-    }
+  > .ember-view {
+    height: 100%;
+  }
 }
 
 html {
@@ -183,6 +184,8 @@ Components
             -webkit-transition: height 1s ease-in-out, border-bottom 1s ease-in-out, color 2s ease-in-out;
             -moz-transition: height 1s ease-in-out, border-bottom 1s ease-in-out, color 2s ease-in-out;
             transition: height 1s ease-in-out, border-bottom 1s ease-in-out, color 2s ease-in-out;
+
+            @include animate-duration(3s);
 
             &.show {
               color: #fff;

@@ -5,6 +5,8 @@ export default Ember.Component.extend({
 
   onDidInsertElement: Ember.on('didInsertElement', function() {
     Ember.run.scheduleOnce('afterRender', this, function() {
+      Ember.$('body').scrollspy({ target: '.navbar-fixed-top' });
+
       // jQuery to collapse the navbar on scroll
       this.collapseNavbar();
       Ember.$(window).scroll(this.collapseNavbar);
