@@ -8,9 +8,17 @@
     "test": "tests"
   },
   "scripts": {
+    "deploy": "gh-pages-deploy",
     "build": "ember build",
     "start": "ember server",
     "test": "ember test"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "dist",
+    "cname": "noclearmind.com",
+    "prep": ["build"],
+    "post": [],
+    "noprompt": false
   },
   "repository": "",
   "engines": {
@@ -39,6 +47,7 @@
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
     "ember-welcome-page": "^1.0.1",
+    "gh-pages-deploy": "^0.4.2",
     "loader.js": "^4.0.1"
   }
 }
