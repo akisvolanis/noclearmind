@@ -8,9 +8,23 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "ember build",
+    "build": "ember build --environment='production'",
     "start": "ember server",
-    "test": "ember test"
+    "test": "ember test",
+    "deploy": "deploy-to-git"
+  },
+  "config": {
+    "deployToGit": {
+      "repository": "git@github.com:charlatan154/noclearmind.git",
+      "branch": "gh-pages",
+      "folder": "dist",
+      "script": "npm run build",
+      "commit": "Add new build",
+      "user": {
+        "email": "c.volanis@gmail.com",
+        "name": "Akis Volanis"
+      }
+    }
   },
   "repository": "",
   "engines": {
