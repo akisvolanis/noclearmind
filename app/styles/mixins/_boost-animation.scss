@@ -1,0 +1,10 @@
+@mixin boost-animation {
+  //will-change: transform;
+  //-webkit-backface-visibility: hidden;
+  //-webkit-perspective: 1000;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}

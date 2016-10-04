@@ -1,0 +1,20 @@
+/************** @author: AKIS *****************/
+
+@mixin transition($expression) {
+  -webkit-transition: #{$expression};
+  -moz-transition: #{$expression};
+  -ms-transition: #{$expression};
+  -o-transition: #{$expression};
+  transition: #{$expression};
+}
+
+/* 
+  Example
+  a {
+    color: gray;
+    @include transition(color .3s ease);
+    &:hover {
+      color: black;
+    }
+  }
+ */

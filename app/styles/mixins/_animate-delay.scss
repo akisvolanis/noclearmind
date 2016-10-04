@@ -1,0 +1,6 @@
+/************** @author: AKIS *****************/
+
+@mixin animate-delay($expression) {
+  -webkit-animation-delay: #{$expression};
+  animation-delay: #{$expression};
+}

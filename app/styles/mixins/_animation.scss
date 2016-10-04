@@ -1,0 +1,26 @@
+/************** @author: AKIS *****************/
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+/* 
+
+ Usage example
+
+.highlighted {
+  @include animation("red-fade 2s ease-in 1");
+}
+
+@include keyframes("red-fade") {
+  0% {background: rgba(221, 71, 39, 1);}
+  100% {background: rgba(221, 71, 39, 0);}
+} 
+
+*/

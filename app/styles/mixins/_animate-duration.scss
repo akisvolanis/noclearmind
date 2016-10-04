@@ -1,0 +1,6 @@
+/************** @author: AKIS *****************/
+
+@mixin animate-duration($expression) {
+  -webkit-animation-duration: #{$expression};
+  animation-duration: #{$expression};
+}

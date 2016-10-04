@@ -1,0 +1,31 @@
+/************** @author: AKIS *****************/
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+
+/* 
+
+ Usage example
+
+.highlighted {
+  @include animation("red-fade 2s ease-in 1");
+}
+
+@include keyframes("red-fade") {
+  0% {background: rgba(221, 71, 39, 1);}
+  100% {background: rgba(221, 71, 39, 0);}
+} 
+
+*/

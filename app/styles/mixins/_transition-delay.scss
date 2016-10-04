@@ -1,0 +1,9 @@
+/************** @author: AKIS *****************/
+
+@mixin transition-delay($expression) {
+  -webkit-transition-delay: #{$expression};
+  -moz-transition-delay: #{$expression};
+  -ms-transition-delay: #{$expression};
+  -o-transition-delay: #{$expression};
+  -transition-delay: #{$expression};
+}

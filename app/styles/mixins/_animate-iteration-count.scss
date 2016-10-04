@@ -1,0 +1,6 @@
+/************** @author: AKIS *****************/
+
+@mixin animate-iteration-count($expression) {
+  -webkit-animation-iteration-count: #{$expression};
+  animation-iteration-count: #{$expression};
+}
