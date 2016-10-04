@@ -16,7 +16,7 @@
   "gh-pages-deploy": {
     "staticpath": "dist",
     "cname": "noclearmind.com",
-    "prep": ["build"],
+    "prep": [],
     "post": [],
     "noprompt": false
   },
