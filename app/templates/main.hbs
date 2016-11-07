@@ -1,4 +1,8 @@
 {{#ncm-init}}{{log config}}
+  {{!-- <audio loop autoplay id="bg-loop">
+    <source src="./loop_song_makena.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio> --}}
   <!-- Navigation -->
   <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
       <div class="container">
@@ -37,19 +41,64 @@
 
   <!-- Intro Header -->
   <header class="intro">
+      <div class="fullscreen-bg">
+          <video loop autoplay id="fs-video">
+              {{!-- <source src="./makena.mp4" type="video/mp4"> --}}
+          </video>
+          <div class="overlay" id="overlay"></div>
+      </div>
       <div class="intro-body">
           <div class="container">
               <div class="row">
                   <div class="col-xs-12">
-                      <h1 class="brand-heading animated fadeIn">no clear mind</h1>
+                      <h1 class="brand-heading animated fadeIn">
+                        <span>no clear mind</span>
+                      </h1>
                       <p class="intro-text"></p>
                       
                   </div>
               </div>
           </div>
       </div>
-      {{#goto-btn href="#about" class="btn btn-circle animated rubberBand infinite"}}
-        <i class="fa fa-angle-double-down"></i>
+      <div class="socials">
+        <ul>
+          <li class="social">
+            <a href="https://www.facebook.com/NoClearMind">
+              <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="social">
+            <a href="https://www.youtube.com/channel/UCEfQbbyCnBaRtNPGivvqu9A">
+              <i class="fa fa-youtube fa-2x" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="social">
+            <a href="https://soundcloud.com/noclearmind">
+              <i class="fa fa-soundcloud fa-2x" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="social">
+            <a href="https://noclearmind.bandcamp.com/music">
+              <i class="fa fa-bandcamp fa-2x" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="social">
+            <a href="https://itunes.apple.com/us/artist/no-clear-mind/id638574129">
+              <span class="fa-stack">
+                <i class="fa fa-circle-thin fa-stack-2x" aria-hidden="true"></i>
+                <i class="fa fa-music" aria-hidden="true"></i>
+              </span>
+            </a>
+          </li>
+          <li class="social">
+            <a href="https://open.spotify.com/artist/2GkzAz3xr5IasfL5ukwDb9">
+              <i class="fa fa-spotify fa-2x" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      {{#goto-btn href="#about" class="btn btn-circle"}}
+        <i class="fa fa-angle-down"></i>
       {{/goto-btn}}
   </header>
 
@@ -57,7 +106,12 @@
   <section id="about" class="container content-section text-justify">
       <div class="row">
           <div class="col-lg-10 col-lg-offset-1">
-            <p>No Clear Mind is a two piece project originally from Athens, Greece. In the last five years they have been engaged with a variety of music genres and have released two full length albums, toured different countries in Europe and gained followers from all around the world.</p>
+            <p>
+              No Clear Mind is a Greek band based between Athens and London. Their music traverses the wider spectre of rock, with heavy influences from genres such as ambient and psychedelic dream rock while the lyrics of their songs are exclusively written in English. They have released two full length albums, toured different countries in Europe and gained followers from all around the world.
+            </p>
+            <p>
+              No Clear Mind introduce themselves through their ambitious third LP, Makena. Striving over total creative control and experimentation, the Greeks opted to record mix and produce the album by themselves. They recorded live inside an old stone barn in South Greece, resulting in a dense multi-layered album, whose sound proves difficult to pigeonhole. Makena‘s themes are mostly introspective. The songs are structured around laid-back vocal melodies complimented by lush analogue synthesized soundscapes of an imaginary 70ʼs soundtrack, along with guitars that evoke the ambiance of Radioheadʼs recent work. The rhythmic driving power behind the album though, lies in the counterpoint between an elaborate mixture of syncopating guitars and pumping acoustic and electronic beats inspired by Tropical and African rhythms.
+            </p>
           </div>
       </div>
   </section>

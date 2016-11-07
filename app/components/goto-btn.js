@@ -15,6 +15,6 @@ export default Ember.Component.extend({
     const _scroll = $anchor.offset().top ? $anchor.offset().top : 0;
     Ember.$('html, body').stop().animate({
         scrollTop: _scroll
-    }, 1500, 'easeInOutExpo');
+    }, 1000, 'easeInOutExpo');
   }
 });

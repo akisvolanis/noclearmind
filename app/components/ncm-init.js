@@ -11,6 +11,15 @@ export default Ember.Component.extend({
       this.collapseNavbar();
       Ember.$(window).scroll(this.collapseNavbar);
 
+      var video = document.getElementById('fs-video');
+      var overlay = document.getElementById('overlay');
+      video.onloadeddata = function() {
+        video.className = "animated fadeIn"
+        overlay.className = "overlay animated fadeOut"
+      };
+      video.src = "./makena.mp4";
+      video.play();
+
       // Closes the Responsive Menu on Menu Item Click
       /*$('.navbar-collapse ul li a').click(function() {
           event.preventDefault();

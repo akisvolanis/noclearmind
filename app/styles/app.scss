@@ -39,6 +39,11 @@ html {
     height: 100%;
 }
 
+audio#bg-loop {
+  visibility: hidden;
+  opacity: 0;
+}
+
 h1,
 h2,
 h3,
@@ -82,8 +87,13 @@ Components
 
 */
 
-.goto-btn-component {
+.btn.goto-btn-component {
+  box-shadow: none;
   cursor: pointer;
+
+  &.active {
+    box-shadow: none;
+  }
 }
 
 
@@ -98,14 +108,14 @@ Components
 
 .navbar-custom {
     margin-bottom: 0;
-    border-bottom: 1px solid rgba(white, 0.3);
+    border-bottom: none;
     /*text-transform: uppercase;*/
     /*font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;*/
     background-color: black;
     .navbar-toggle {
         padding: 4px 6px;
         font-size: 16px;
-        color: white;
+        color: #fff;
         &:focus,
         &:active {
             outline: none;
@@ -113,12 +123,15 @@ Components
     }
     .navbar-brand {
         font-weight: 700;
+        -ms-transform: rotate(-3deg); /* IE 9 */
+            -webkit-transform: rotate(-3deg); /* Chrome, Safari, Opera */
+            transform: rotate(-3deg);
         &:focus {
             outline: none;
         }
     }
     a {
-        color: white;
+        color: #fff;
     }
     .nav {
         li {
@@ -127,7 +140,7 @@ Components
                 -moz-transition: background .3s ease-in-out;
                 transition: background .3s ease-in-out;
                 &:hover {
-                    color: rgba(white, 0.8);
+                    color: rgba(#248abb, 0.8);
                     outline: none;
                     background-color: transparent;
                 }
@@ -140,9 +153,9 @@ Components
             &.active {
                 outline: none;
                 a {
-                    background-color: rgba(white, 0.3);
+                    background-color: rgba(#248abb, 0.3);
                     &:hover {
-                        color: white;
+                        color: #248abb;
                     }
                 }
             }
@@ -158,25 +171,34 @@ Components
         transition: background .5s ease-in-out,padding .5s ease-in-out;
         &.top-nav-collapse {
             padding: 0;
-            background: black;
-            border-bottom: 1px solid rgba(white, 0.3);
+            background: rgba(0,0,0,0.6);
         }
     }
 }
 
 .intro {
+  position: relative;
     display: table;
     width: 100%;
     height: auto;
     padding: 100px 0;
     text-align: center;
     color: white;
-    background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+    overflow: hidden;
+    /*background: linear-gradient(
+      rgba(0,0,0, 0.45),
+      rgba(0,0,0, 0.45)
+    ), url(../img/intro-bg.jpg);*/
+    /*background: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom center;
     background-color: black;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
-    -o-background-size: cover;
+    -o-background-size: cover;*/
+
+
     .intro-body {
         display: table-cell;
         vertical-align: middle;
@@ -186,16 +208,28 @@ Components
             border-bottom: 110px solid #fff;
             color: #fff;
             overflow: hidden;
-            -webkit-transition: height 1s ease-in-out, border-bottom 1s ease-in-out, color 2s ease-in-out;
-            -moz-transition: height 1s ease-in-out, border-bottom 1s ease-in-out, color 2s ease-in-out;
-            transition: height 1s ease-in-out, border-bottom 1s ease-in-out, color 2s ease-in-out;
+            -webkit-transition: height 1.2s ease-in-out, border-bottom 1.2s ease-in-out, color 2s ease-in-out;
+            -moz-transition: height 1.2s ease-in-out, border-bottom 1.2s ease-in-out, color 2s ease-in-out;
+            transition: height 1.2s ease-in-out, border-bottom 1.2s ease-in-out, color 2s ease-in-out;
+
+            -ms-transform: rotate(-2deg); /* IE 9 */
+            -webkit-transform: rotate(-2deg); /* Chrome, Safari, Opera */
+            transform: rotate(-2deg);
 
             @include animate-duration(3s);
 
             &.show {
-              color: #000;
+              color: #DFE2E2;
               height: 110px;
-              border-bottom: 0px solid #fff;
+              border-bottom: 0px solid #DFE2E2;
+            }
+
+            span {
+              -webkit-animation: rainbow 20s infinite alternate;
+              -moz-animation: rainbow 20s infinite alternate;
+              -o-animation: rainbow 20s infinite alternate;
+              -ms-animation: rainbow 20s infinite alternate;
+              animation: rainbow 20s infinite alternate;
             }
         }
         .intro-text {
@@ -216,28 +250,121 @@ Components
     }
 }
 
+video { 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    transition: 1s opacity;
+    overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  bottom: 0%;
+  right: 0%;
+  min-width: 100%;
+  min-height: 100%;
+  background: url(../img/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.socials {
+  position: absolute;
+  left: 2%;
+  bottom: 3%;
+  -ms-transform: rotate(1deg); /* IE 9 */
+  -webkit-transform: rotate(1deg); /* Chrome, Safari, Opera */
+  transform: rotate(1deg);
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline;
+    margin: 0 20px;
+    font-size: 18px;
+
+    a {
+      -webkit-animation: rainbow 20s infinite alternate;
+      -moz-animation: rainbow 20s infinite alternate;
+      -o-animation: rainbow 20s infinite alternate;
+      -ms-animation: rainbow 20s infinite alternate;
+      animation: rainbow 20s infinite alternate;
+
+      &:hover, &:focus {
+        color: #fff;
+        -webkit-animation: none;
+        -moz-animation: none;
+        -o-animation: none;
+        -ms-animation: none;
+        animation: none;
+      }
+    }
+  }
+
+  .fa-stack {
+    top: -8px;
+  }
+}
+
 .btn-circle {
     position: absolute;
     bottom: 0;
     left: calc(50% - 30px);
     margin-top: 15px;
     padding: 7px 16px;
-    font-size: 60px;
-    color: #000;
+    font-size: 50px;
+    color: #fff;
+    font-weight: 300;
     background: transparent;
-/*    -webkit-transition: background .3s ease-in-out;
-    -moz-transition: background .3s ease-in-out;
-    transition: background .3s ease-in-out;*/
-    &:hover,
-    &:focus {
+    outline: none;
+    box-shadow: none;
+
+    -webkit-animation-name: Floatingx;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -moz-animation-name: Floating;
+    -moz-animation-duration: 4s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: ease-in-out;
+
+    .fa {
+      -webkit-animation: rainbow 20s infinite alternate;
+      -moz-animation: rainbow 20s infinite alternate;
+      -o-animation: rainbow 20s infinite alternate;
+      -ms-animation: rainbow 20s infinite alternate;
+      animation: rainbow 20s infinite alternate;
+    }
+
+    &:hover, &:focus {
         color: $primary;
+        outline: none;
+        box-shadow: none;
         /*background: rgba(white, 0.1);*/
     }
     &.animated {
-        @include animate-duration(3s);
-        @include animate-delay(1s);
+        @include animate-duration(2s);
+        animation-delay: 10s;
     }
-    &:hover {
+    /*&:hover {
         i.animated {
             -webkit-animation-name: pulse;
             -moz-animation-name: pulse;
@@ -248,7 +375,7 @@ Components
             -webkit-animation-timing-function: linear;
             -moz-animation-timing-function: linear;
         }
-    }
+    }*/
 }
 
 /*#about {
@@ -312,7 +439,7 @@ Components
 
 @media(min-width:767px) {
     .content-section {
-        padding-top: 250px;
+        padding-top: 100px;
     }
 
     .releases-section {
@@ -330,17 +457,6 @@ Components
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-}
-
-
-@media(min-width:767px) {
-    .content-section {
-        padding-top: 250px;
-    }
-
-    .photos-section {
-        padding: 100px 0;
-    }
 }
 
 .btn {
@@ -415,6 +531,35 @@ img::-moz-selection {
 
 body {
     -webkit-tap-highlight-color: rgba(white, 0.2);
+}
+
+
+@keyframes rainbow {
+  0% {color: #3BB3D1;}
+  25% {color: #E1D892;}
+  50% {color: #D4B2B8;}
+  75% {color: #7CAABA;}
+  100% {color: #ABA090;}
+}
+
+@-webkit-keyframes rainbow {
+  0% {color: #3BB3D1;}
+  25% {color: #E1D892;}
+  50% {color: #D4B2B8;}
+  75% {color: #7CAABA;}
+  100% {color: #ABA090;}
+}
+
+@-webkit-keyframes Floatingx{
+    from {-webkit-transform:translate(0, 0px);}
+    65% {-webkit-transform:translate(0, 15px);}
+    to {-webkit-transform: translate(0, -0px);    }    
+}
+    
+@-moz-keyframes Floating{
+    from {-moz-transform:translate(0, 0px);}
+    65% {-moz-transform:translate(0, 15px);}
+    to {-moz-transform: translate(0, -0px);}    
 }
 
 
