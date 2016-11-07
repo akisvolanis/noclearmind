@@ -123,9 +123,6 @@ Components
     }
     .navbar-brand {
         font-weight: 700;
-        -ms-transform: rotate(-3deg); /* IE 9 */
-            -webkit-transform: rotate(-3deg); /* Chrome, Safari, Opera */
-            transform: rotate(-3deg);
         &:focus {
             outline: none;
         }
@@ -298,8 +295,8 @@ video {
 
   li {
     display: inline;
-    margin: 0 20px;
-    font-size: 18px;
+    margin: 0 10px;
+    font-size: 16px;
 
     a {
       -webkit-animation: rainbow 20s infinite alternate;
@@ -321,6 +318,13 @@ video {
 
   .fa-stack {
     top: -8px;
+  }
+
+  @media(min-width:767px) {
+    li {
+      margin: 0 20px;
+      font-size: 18px;
+    }
   }
 }
 

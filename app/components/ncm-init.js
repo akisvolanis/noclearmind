@@ -13,13 +13,14 @@ export default Ember.Component.extend({
 
       var video = document.getElementById('fs-video');
       var overlay = document.getElementById('overlay');
-      video.onloadeddata = function() {
-        video.className = "animated fadeIn"
-        overlay.className = "overlay animated fadeOut"
-      };
-      video.src = "./makena.mp4";
-      video.play();
-
+      if(overlay && !this.isMobile()) {
+        video.onloadeddata = function() {
+          video.className = "animated fadeIn";
+          overlay.className = "overlay animated fadeOut";
+        };
+        video.src = "./makena.mp4";
+        video.play();
+      }
       // Closes the Responsive Menu on Menu Item Click
       /*$('.navbar-collapse ul li a').click(function() {
           event.preventDefault();
@@ -31,6 +32,22 @@ export default Ember.Component.extend({
       Ember.$('.brand-heading').addClass('show');
     },1000);
   }),
+
+  isMobile() { 
+   if( navigator.userAgent.match(/Android/i)
+   || navigator.userAgent.match(/webOS/i)
+   || navigator.userAgent.match(/iPhone/i)
+   || navigator.userAgent.match(/iPad/i)
+   || navigator.userAgent.match(/iPod/i)
+   || navigator.userAgent.match(/BlackBerry/i)
+   || navigator.userAgent.match(/Windows Phone/i)
+   ){
+      return true;
+    }
+   else {
+      return false;
+    }
+  },
 
   collapseNavbar() {
     if ($(".navbar").offset().top > 50) {

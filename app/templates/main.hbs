@@ -41,12 +41,12 @@
 
   <!-- Intro Header -->
   <header class="intro">
-      <div class="fullscreen-bg">
+      <div class="fullscreen-bg hidden-xs">
           <video loop autoplay id="fs-video">
               {{!-- <source src="./makena.mp4" type="video/mp4"> --}}
           </video>
-          <div class="overlay" id="overlay"></div>
       </div>
+      <div class="overlay" id="overlay"></div>
       <div class="intro-body">
           <div class="container">
               <div class="row">
@@ -97,7 +97,7 @@
           </li>
         </ul>
       </div>
-      {{#goto-btn href="#about" class="btn btn-circle"}}
+      {{#goto-btn href="#about" class="btn btn-circle hidden-xs"}}
         <i class="fa fa-angle-down"></i>
       {{/goto-btn}}
   </header>
