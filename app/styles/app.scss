@@ -200,7 +200,7 @@ Components
         display: table-cell;
         vertical-align: middle;
         .brand-heading {
-            font-size: 40px;
+            font-size: 36px;
             height: 110px;
             border-bottom: 110px solid #fff;
             color: #fff;
@@ -540,18 +540,14 @@ body {
 
 @keyframes rainbow {
   0% {color: #3BB3D1;}
-  25% {color: #E1D892;}
   50% {color: #D4B2B8;}
-  75% {color: #7CAABA;}
-  100% {color: #ABA090;}
+  100% {color: #7CAABA;}
 }
 
 @-webkit-keyframes rainbow {
   0% {color: #3BB3D1;}
-  25% {color: #E1D892;}
   50% {color: #D4B2B8;}
-  75% {color: #7CAABA;}
-  100% {color: #ABA090;}
+  100% {color: #7CAABA;}
 }
 
 @-webkit-keyframes Floatingx{
