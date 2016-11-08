@@ -209,10 +209,6 @@ Components
             -moz-transition: height 1.2s ease-in-out, border-bottom 1.2s ease-in-out, color 2s ease-in-out;
             transition: height 1.2s ease-in-out, border-bottom 1.2s ease-in-out, color 2s ease-in-out;
 
-            -ms-transform: rotate(-2deg); /* IE 9 */
-            -webkit-transform: rotate(-2deg); /* Chrome, Safari, Opera */
-            transform: rotate(-2deg);
-
             @include animate-duration(3s);
 
             &.show {
