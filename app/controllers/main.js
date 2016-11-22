@@ -24,10 +24,8 @@ export default Ember.Controller.extend({
     toggleMute() {
       //this.toggleProperty('isMuted');
       if (!this.get('isMuted')) {
+        this.toggleProperty('isMuted');
         Ember.$('#fs-video').animate({volume: 0}, 600);
-        Ember.run.later(this, function() {
-          this.toggleProperty('isMuted');
-        },1000);
       } else {
         this.toggleProperty('isMuted');
         Ember.$('#fs-video').animate({volume: 1}, 600);
