@@ -1,26 +1,32 @@
-{{#ncm-init}}{{log config}}
+{{#ncm-init}}
   {{!-- <audio loop autoplay id="bg-loop">
     <source src="./loop_song_makena.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio> --}}
   <!-- Navigation -->
   <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-      <div class="container">
           <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+              {{!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                   Menu <i class="fa fa-bars"></i>
-              </button>
+              </button> --}}
               {{#goto-btn href="#noclearmind" class="navbar-brand"}}no clear mind{{/goto-btn}}
-          </div>
 
+
+          </div>
+          <button type="button" class="btn mute-btn {{if isMobile 'hidden'}}" {{action "toggleMute"}}>
+            {{#if isMuted}}
+              <i class="fa fa-volume-up" aria-hidden="true"></i>
+            {{else}}
+              <i class="fa fa-volume-off" aria-hidden="true"></i>
+            {{/if}}
+          </button>
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+          {{!-- <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
               <ul class="nav navbar-nav">
-                  <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                   <li class="hidden">
                     {{#goto-btn href="#noclearmind"}}home{{/goto-btn}}
                   </li>
-                  {{!-- <li>
+                  <li>
                     {{#goto-btn href="#about"}}about{{/goto-btn}}
                   </li>
                   <li>
@@ -31,13 +37,14 @@
                   </li>
                   <li>
                     {{#goto-btn href="#contact"}}contact{{/goto-btn}}
-                  </li> --}}
+                  </li>
               </ul>
-          </div>
+          </div> --}}
           <!-- /.navbar-collapse -->
-      </div>
       <!-- /.container -->
   </nav>
+
+  
 
   <!-- Intro Header -->
   <header class="intro">
@@ -63,27 +70,27 @@
       <div class="socials">
         <ul>
           <li class="social">
-            <a href="https://www.facebook.com/NoClearMind">
+            <a href="https://www.facebook.com/NoClearMind" target='_blank'>
               <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
             </a>
           </li>
           <li class="social">
-            <a href="https://www.youtube.com/channel/UCEfQbbyCnBaRtNPGivvqu9A">
+            <a href="https://www.youtube.com/channel/UCEfQbbyCnBaRtNPGivvqu9A" target='_blank'>
               <i class="fa fa-youtube fa-2x" aria-hidden="true"></i>
             </a>
           </li>
           <li class="social">
-            <a href="https://soundcloud.com/noclearmind">
+            <a href="https://soundcloud.com/noclearmind" target='_blank'>
               <i class="fa fa-soundcloud fa-2x" aria-hidden="true"></i>
             </a>
           </li>
           <li class="social">
-            <a href="https://noclearmind.bandcamp.com/music">
+            <a href="https://noclearmind.bandcamp.com/music" target='_blank'>
               <i class="fa fa-bandcamp fa-2x" aria-hidden="true"></i>
             </a>
           </li>
           <li class="social">
-            <a href="https://itunes.apple.com/us/artist/no-clear-mind/id638574129">
+            <a href="https://itunes.apple.com/us/artist/no-clear-mind/id638574129" target='_blank'>
               <span class="fa-stack">
                 <i class="fa fa-circle-thin fa-stack-2x" aria-hidden="true"></i>
                 <i class="fa fa-music" aria-hidden="true"></i>
@@ -91,8 +98,13 @@
             </a>
           </li>
           <li class="social">
-            <a href="https://open.spotify.com/artist/2GkzAz3xr5IasfL5ukwDb9">
+            <a href="https://open.spotify.com/artist/2GkzAz3xr5IasfL5ukwDb9" target='_blank'>
               <i class="fa fa-spotify fa-2x" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="social">
+            <a href="mailto:noclearmind@gmail.com?Subject=Hello%20noclearmind" target="_top">
+              <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
             </a>
           </li>
         </ul>
@@ -109,9 +121,9 @@
             <p>
               No Clear Mind is a Greek band based between Athens and London. Their music traverses the wider spectre of rock, with heavy influences from genres such as ambient and psychedelic dream rock while the lyrics of their songs are exclusively written in English. They have released two full length albums, toured different countries in Europe and gained followers from all around the world.
             </p>
-            <p>
+            {{!-- <p>
               No Clear Mind introduce themselves through their ambitious third LP, Makena. Striving over total creative control and experimentation, the Greeks opted to record mix and produce the album by themselves. They recorded live inside an old stone barn in South Greece, resulting in a dense multi-layered album, whose sound proves difficult to pigeonhole. Makena‘s themes are mostly introspective. The songs are structured around laid-back vocal melodies complimented by lush analogue synthesized soundscapes of an imaginary 70ʼs soundtrack, along with guitars that evoke the ambiance of Radioheadʼs recent work. The rhythmic driving power behind the album though, lies in the counterpoint between an elaborate mixture of syncopating guitars and pumping acoustic and electronic beats inspired by Tropical and African rhythms.
-            </p>
+            </p> --}}
           </div>
       </div>
   </section>
@@ -183,7 +195,7 @@
   <!-- Footer -->
   <footer>
       <div class="container text-center">
-          <p>Copyright &copy; noclearmind.com 2016. Design by Akis.</p>
+          <p>Copyright &copy; noclearmind.com {{currentYear}}. Design by Akis.</p>
       </div>
   </footer>
 {{/ncm-init}}

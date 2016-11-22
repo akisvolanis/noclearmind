@@ -1,5 +1,5 @@
 import Ember from 'ember';
-/* globals $ */
+
 export default Ember.Component.extend({
   tagName: '',
 
@@ -18,7 +18,8 @@ export default Ember.Component.extend({
           video.className = "animated fadeIn";
           overlay.className = "overlay animated fadeOut";
         };
-        video.src = "./makena.mp4";
+
+        video.src = "./intro.mp4";
         video.play();
       }
       // Closes the Responsive Menu on Menu Item Click
@@ -44,12 +45,16 @@ export default Ember.Component.extend({
   },
 
   collapseNavbar() {
-    if ($(".navbar").offset().top > 50) {
-      $(".navbar-fixed-top .navbar-brand").removeClass("hidden");
-      $(".navbar-fixed-top").addClass("top-nav-collapse");
+    if (Ember.$(".navbar").offset().top > 50) {
+      Ember.$(".navbar-fixed-top .navbar-brand").removeClass("hidden");
+      Ember.$(".navbar-fixed-top").addClass("top-nav-collapse");
+      Ember.$(".navbar-fixed-top").removeClass("no-bg");
+      Ember.$(".btn-circle").addClass("fadeout");
     } else {
-      $(".navbar-fixed-top .navbar-brand").addClass("hidden");
-      $(".navbar-fixed-top").removeClass("top-nav-collapse");
+      Ember.$(".navbar-fixed-top .navbar-brand").addClass("hidden");
+      Ember.$(".navbar-fixed-top").removeClass("top-nav-collapse");
+      Ember.$(".navbar-fixed-top").addClass("no-bg");
+      Ember.$(".btn-circle").removeClass("fadeout");
     }
   }
 });
