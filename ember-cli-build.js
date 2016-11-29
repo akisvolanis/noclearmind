@@ -6,7 +6,8 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     'ember-cli-bootstrap-sassy': {
       'quiet': true,
-      'glyphicons': false
+      'glyphicons': false,
+      'js': ['scrollspy']
     },
   });
 
