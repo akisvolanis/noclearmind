@@ -21,14 +21,26 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
-    toggleMute() {
-      //this.toggleProperty('isMuted');
-      if (!this.get('isMuted')) {
-        this.toggleProperty('isMuted');
-        Ember.$('#fs-video').animate({volume: 0}, 600);
+    toggleMute(value) {
+      if(value != null) {
+        if(!this.get('isMuted')) {
+          if (value) {
+            //this.set('isMuted', true);
+            Ember.$('#fs-video').animate({volume: 0}, 600);
+          } else {
+            //this.set('isMuted', false);
+            Ember.$('#fs-video').animate({volume: 1}, 600);
+          }
+        }
       } else {
-        this.toggleProperty('isMuted');
-        Ember.$('#fs-video').animate({volume: 1}, 600);
+        //this.toggleProperty('isMuted');
+        if (!this.get('isMuted')) {
+          this.toggleProperty('isMuted');
+          Ember.$('#fs-video').animate({volume: 0}, 600);
+        } else {
+          this.toggleProperty('isMuted');
+          Ember.$('#fs-video').animate({volume: 1}, 600);
+        }
       }
     }
   }

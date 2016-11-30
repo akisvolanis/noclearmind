@@ -136,23 +136,17 @@
       </div>
   </section>
 
-  <!-- releases Section -->
-  {{!-- <section id="releases" class="content-section text-center">
-      <div class="releases-section">
+  <!-- player Section -->
+  <section id="player" class="content-section text-center">
+      <div class="player-section">
           <div class="container">
-              <div class="col-lg-8 col-lg-offset-2">
-                  <h2>releases</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  <a href="/" class="btn btn-default btn-lg">Visit Download Page</a>
+              <div class="col-xs-12" id="soundcloud_player">
+                  {{sc-player onEnterView=(action "toggleMute") onExitView=(action "toggleMute")}}
+                  {{!-- {{bc-player onEnterView=(action "toggleMute") onExitView=(action "toggleMute")}} --}}
               </div>
           </div>
       </div>
-  </section> --}}
+  </section>
 
   <!-- photos Section -->
   {{!-- <section id="photos" class="content-section text-center">
