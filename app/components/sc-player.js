@@ -20,17 +20,25 @@ export default Ember.Component.extend(InViewportMixin, {
     });
 
     Ember.run.scheduleOnce('afterRender', this, function() {
-      let widgetIframe = document.getElementById('sc-widget'),
-        widget = SC.Widget(widgetIframe);
+      console.log(this.get('elementId')+'-player');
+      let widgetIframe = document.getElementById(this.get('elementId')+'-player'),
+      widget = SC.Widget(widgetIframe);
       widget.bind(SC.Widget.Events.READY, function(){
-        /*widget.bind(SC.Widget.Events.PLAY, function() {
-          // get information about currently playing sound
-          widget.getCurrentSound(function(currentSound) {
-            console.log('sound ' + currentSound.get('') + 'began to play');
-          });
-        });
+        widget.bind(SC.Widget.Events.PLAY, function() {
+          if(this.attrs.onPlay) {
+            console.log('play');
+            this.attrs.onPlay();
+          }
+        }.bind(this));
 
-        widget.play();*/
+        widget.bind(SC.Widget.Events.PAUSE, function() {
+          if(this.attrs.onPause) {
+            console.log('pause');
+            this.attrs.onPause();
+          }
+        }.bind(this));
+
+        //widget.play();
         this.set('sc-player', widget);
       }.bind(this));
     });
@@ -40,7 +48,9 @@ export default Ember.Component.extend(InViewportMixin, {
     //console.log('enter');
     if(this.get("sc-player") && this.attrs.autoplay) {
       this.get("sc-player").play();
-      this.attrs.onEnterView(true);
+      if(this.attrs.onEnterView) {
+        this.attrs.onEnterView();
+      }
     }
   },
  
@@ -48,7 +58,9 @@ export default Ember.Component.extend(InViewportMixin, {
     //console.log('exit');
     if(this.get("sc-player") && this.attrs.autoplay) {
       this.get("sc-player").pause();
-      this.attrs.onExitView(false);
+      if(this.attrs.onExitView) {
+        this.attrs.onExitView();
+      }
     }
   }
 });
