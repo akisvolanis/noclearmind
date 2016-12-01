@@ -12,8 +12,8 @@ export default Ember.Component.extend(InViewportMixin, {
       viewportScrollSensitivity : 1,
       viewportRefreshRate       : 150,
       viewportTolerance: {
-        top    : 0,
-        bottom : 0,
+        top    : 300,
+        bottom : 300,
         left   : 0,
         right  : 0
       }
@@ -38,7 +38,7 @@ export default Ember.Component.extend(InViewportMixin, {
 
   didEnterViewport() {
     //console.log('enter');
-    if(this.get("sc-player")) {
+    if(this.get("sc-player") && this.attrs.autoplay) {
       this.get("sc-player").play();
       this.attrs.onEnterView(true);
     }
@@ -46,7 +46,7 @@ export default Ember.Component.extend(InViewportMixin, {
  
   didExitViewport() {
     //console.log('exit');
-    if(this.get("sc-player")) {
+    if(this.get("sc-player") && this.attrs.autoplay) {
       this.get("sc-player").pause();
       this.attrs.onExitView(false);
     }
