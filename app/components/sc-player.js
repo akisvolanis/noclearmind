@@ -20,20 +20,20 @@ export default Ember.Component.extend(InViewportMixin, {
     });
 
     Ember.run.scheduleOnce('afterRender', this, function() {
-      console.log(this.get('elementId')+'-player');
+      //console.log(this.get('elementId')+'-player');
       let widgetIframe = document.getElementById(this.get('elementId')+'-player'),
       widget = SC.Widget(widgetIframe);
       widget.bind(SC.Widget.Events.READY, function(){
         widget.bind(SC.Widget.Events.PLAY, function() {
           if(this.attrs.onPlay) {
-            console.log('play');
+            //console.log('play');
             this.attrs.onPlay();
           }
         }.bind(this));
 
         widget.bind(SC.Widget.Events.PAUSE, function() {
           if(this.attrs.onPause) {
-            console.log('pause');
+            //console.log('pause');
             this.attrs.onPause();
           }
         }.bind(this));
